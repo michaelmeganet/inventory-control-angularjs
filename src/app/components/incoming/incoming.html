@@ -1,0 +1,69 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creationDate="main.creationDate" />
+  </div>
+
+  <form class="form-horizontal" ng-submit="add()">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Cadastro de Mercadorias</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="name">Nome</label>
+        <div class="col-md-5">
+          <input id="name" ng-model="incoming.name" name="name" type="text" placeholder="Nome" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="description">Descrição</label>
+        <div class="col-md-6">
+          <input id="description" ng-model="incoming.description" name="description" type="text" placeholder="Descrição Mercadoria" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="value">Valor</label>
+        <div class="col-md-4">
+          <input id="value" ng-model="incoming.value" name="value" type="text" placeholder="Valor Unitário" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="quantity">Quantidade</label>
+        <div class="col-md-4">
+          <input id="quantity" ng-model="incoming.quantity" name="quantity" type="text" placeholder="Quantidade" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="minQuantity">Quantidade Mínima</label>
+        <div class="col-md-4">
+          <input id="minQuantity" ng-model="incoming.minQuantity" name="minQuantity" type="text" placeholder="Quantidade Mín." class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="submit"></label>
+        <div class="col-md-4">
+          <button id="submit" name="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+</div>

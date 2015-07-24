@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creationDate="main.creationDate"/>
+  </div>
+
+  <h2>Saída de Mercadorias</h2>
+
+  <table class="table table-hover table-striped table-bordered">
+    <thead>
+    <tr>
+      <td>Nome</td>
+      <td>Quantidade</td>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="product in incomings" ui-sref="edit({id: '{{product.id}}'})">
+      <td>{{ product.name }}</td>
+      <td>{{ product.quantity }}</td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
