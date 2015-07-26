@@ -4,40 +4,44 @@
   var app = angular.module('inventorycontrol');
   app.directive('incoming', incoming);
 
-  app.controller('IncomingController', ['$scope', '$http', function($scope, $http) {
-    $scope.incoming = {
+  app.controller('IncomingController', ['$scope', '$http', 'toastr', function($scope, $http, toastr) {
+
+    function createModel() {
+      $scope.incoming = {
         name: " ",
         description: " ",
         value: " ",
         quantity: " ",
         minQuantity: " "
+      }
     }
 
-    $scope.scotches = [
-      {
-        name: 'Macallan 12',
-        price: 50
-      },
-      {
-        name: 'Chivas Regal Royal Salute',
-        price: 10000
-      },
-      {
-        name: 'Glenfiddich 1937',
-        price: 20000
-      }
-    ];
+    createModel();
 
     $scope.add = function() {
       console.log($scope.incoming);
 
       $http.post('http://localhost:8080/incoming', $scope.incoming).
         success(function(data, status, headers, config) {
-          console.log(status);
+          showToastr();
+          createModel();
         }).
         error(function(data, status, headers, config) {
           console.log(status);
+          createModel();
         });
+    }
+
+    var vm = this;
+
+    vm.awesomeThings = [];
+    vm.classAnimation = '';
+    vm.creationDate = 1437525490474;
+    vm.showToastr = showToastr;
+
+    function showToastr() {
+      toastr.info('<b>Cadastro efetuado com sucesso!</b>');
+      vm.classAnimation = '';
     }
 
   }]);
