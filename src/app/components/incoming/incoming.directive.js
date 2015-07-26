@@ -23,12 +23,12 @@
 
       $http.post('http://localhost:8080/incoming', $scope.incoming).
         success(function(data, status, headers, config) {
-          showToastr();
+          showToastr('Cadastro efetuado com sucesso!');
           createModel();
         }).
         error(function(data, status, headers, config) {
           console.log(status);
-          createModel();
+          showToastr('Erro ao tentar efetuar o cadastro, preencha o formulário corretamente.');
         });
     }
 
@@ -37,10 +37,9 @@
     vm.awesomeThings = [];
     vm.classAnimation = '';
     vm.creationDate = 1437525490474;
-    vm.showToastr = showToastr;
 
-    function showToastr() {
-      toastr.info('<b>Cadastro efetuado com sucesso!</b>');
+    function showToastr(text) {
+      toastr.info('<b>' + text + '</b>');
       vm.classAnimation = '';
     }
 
