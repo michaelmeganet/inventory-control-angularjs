@@ -21,12 +21,13 @@
 
       $http.put('http://localhost:8080/outgoing', $scope.outgoing).
         success(function(data, status, headers, config) {
-          showToastr();
+          showToastr('Saída efetuada com sucesso!');
           createModel();
           $state.go('outgoing');
         }).
         error(function(data, status, headers, config) {
           console.log(status);
+          showToastr('Digite uma quantidade válida para retirada.');
         });
     }
 
@@ -37,8 +38,8 @@
     vm.creationDate = 1437525490474;
     vm.showToastr = showToastr;
 
-    function showToastr() {
-      toastr.info('<b>Saída efetuada com sucesso!</b>');
+    function showToastr(text) {
+      toastr.info('<b>' + text + '</b>');
       vm.classAnimation = '';
     }
 
